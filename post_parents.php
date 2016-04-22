@@ -35,6 +35,7 @@ function lcb_page_child_posts()
         bottom: 0;
         width: 100%;
         z-index: 11;
+        left: 0;
       }
       .child-post{
         border: 1px solid #A0A0A0;
