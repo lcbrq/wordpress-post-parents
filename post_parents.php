@@ -15,12 +15,14 @@ add_action('wp_footer', 'lcb_page_child_posts');
 
 function lcb_page_child_posts()
 {
-    global $post;
+    global $wp_query;
+    $post_id = $wp_query->post->ID;
+
     $query = array(
         'posts_per_page' => 4,
         'post_type' => array('post'),
         'post_status' => 'publish',
-        'post_parent' => $post->ID
+        'post_parent' => $post_id
     );
     $posts = new WP_Query($query);
 
@@ -32,6 +34,7 @@ function lcb_page_child_posts()
         position: fixed;
         bottom: 0;
         width: 100%;
+        z-index: 11;
       }
       .child-post{
         border: 1px solid #A0A0A0;
